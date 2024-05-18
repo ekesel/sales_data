@@ -41,10 +41,10 @@ def load_sales_data(filename):
             except Exception as e:
                 print(str(e))
         msg = "DATA INGESTION AND CLEANING DONE, TOTAL TENANT ROWS ADDED = %s" % (count)
+        # this should be handled with a logger, for now just printing it
         print(msg)
-        # data transformations
-        print(salesData.objects.all())
         
     except Exception as e:
+        # this should be handled with a logger, for now just printing it
         print("FAILED TO READ FILE")
     

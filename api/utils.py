@@ -18,10 +18,10 @@ def load_sales_data(filename):
                 dt = datetime.strptime(row['SaleDate'], '%d/%m/%Y')
                 if int(row['SaleAmount']) <= 0:
                     continue
-                # Tenant.objects.create(saledate=dt,customer_id=row['CustomerId'],product_id=row['ProductId'],
-                #                       quantity=row['Quantity'],
-                #                       price=row['Price'],
-                #                       sale_amount=row['SaleAmount'])
+                Tenant.objects.create(saledate=dt,customer_id=row['CustomerId'],product_id=row['ProductId'],
+                                      quantity=row['Quantity'],
+                                      price=row['Price'],
+                                      sale_amount=row['SaleAmount'])
                 count += 1
                 product_id = int(row['ProductId'])
                 queryset = salesData.objects.filter(month=str(dt.month), year=str(dt.year))

@@ -140,7 +140,7 @@ CELERY_BEAT_SCHEDULE = {
       'load_data_every_day': {
         'task': 'api.tasks.load_sales',
         'schedule': 30.0,
-        'args': ('saledata2.csv'),
+        'args': ('saledata2.csv',),
         'options': {
             'expires': 150.0,
         },

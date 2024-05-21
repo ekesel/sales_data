@@ -17,3 +17,14 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
   
 # Load task modules from all registered Django app configs. 
 app.autodiscover_tasks() 
+
+app.conf.beat_schedule = {
+    'load_data_every_day': {
+        'task': 'api.tasks.load_sales',
+        'schedule': 30.0,
+        'args': ('saledata2.csv',),
+        'options': {
+            'expires': 150.0,
+        },
+    },
+}
